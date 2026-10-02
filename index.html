@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Bishal Shirpali | Creative Developer</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:#05070c;
+    color:#fff;
+    overflow-x:hidden;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+/* NAVBAR */
+
+header{
+    width:100%;
+    position:fixed;
+    top:0;
+    z-index:1000;
+    background:rgba(5,7,12,.82);
+    backdrop-filter:blur(18px);
+    border-bottom:1px solid rgba(255,255,255,.07);
+}
+
+nav{
+    max-width:1400px;
+    margin:auto;
+    height:75px;
+    padding:0 6%;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.logo{
+    font-size:25px;
+    font-weight:800;
+    letter-spacing:-1px;
+}
+
+.logo span{
+    color:#39e6ff;
+}
+
+.menu{
+    display:flex;
+    gap:27px;
+    list-style:none;
+}
+
+.menu a{
+    color:#a8afbd;
+    font-size:14px;
+    transition:.25s;
+}
+
+.menu a:hover,
+.menu .active{
+    color:#39e6ff;
+}
+
+/* HERO */
+
+.hero{
+    min-height:100vh;
+    padding:150px 7% 80px;
+    display:flex;
+    align-items:center;
+    position:relative;
+    overflow:hidden;
+}
+
+.glow-one{
+    width:500px;
+    height:500px;
+    position:absolute;
+    right:-180px;
+    top:100px;
+    background:#00d9ff;
+    filter:blur(190px);
+    opacity:.13;
+}
+
+.glow-two{
+    width:350px;
+    height:350px;
+    position:absolute;
+    left:-200px;
+    bottom:-100px;
+    background:#725cff;
+    filter:blur(170px);
+    opacity:.12;
+}
+
+.hero-content{
+    position:relative;
+    z-index:2;
+    max-width:950px;
+}
+
+.tag{
+    display:inline-block;
+    color:#39e6ff;
+    border:1px solid rgba(57,230,255,.25);
+    background:rgba(57,230,255,.06);
+    padding:9px 15px;
+    border-radius:50px;
+    font-size:12px;
+    letter-spacing:2px;
+    margin-bottom:25px;
+}
+
+.hero h1{
+    font-size:clamp(55px,9vw,115px);
+    line-height:.92;
+    letter-spacing:-5px;
+    margin-bottom:30px;
+}
+
+.hero h1 span{
+    color:#39e6ff;
+}
+
+.hero-description{
+    max-width:700px;
+    font-size:18px;
+    line-height:1.8;
+    color:#929aaa;
+}
+
+.hero-buttons{
+    margin-top:38px;
+    display:flex;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+.button{
+    padding:15px 25px;
+    border-radius:9px;
+    font-size:14px;
+    font-weight:700;
+    transition:.3s;
+}
+
+.main-button{
+    background:#39e6ff;
+    color:#051014;
+}
+
+.main-button:hover{
+    transform:translateY(-4px);
+    box-shadow:0 10px 35px rgba(57,230,255,.25);
+}
+
+.second-button{
+    border:1px solid #29303d;
+    color:#d8dce4;
+}
+
+.second-button:hover{
+    border-color:#39e6ff;
+}
+
+/* STATUS */
+
+.status{
+    margin-top:60px;
+    display:flex;
+    gap:45px;
+    flex-wrap:wrap;
+}
+
+.status-item strong{
+    display:block;
+    font-size:22px;
+    margin-bottom:5px;
+}
+
+.status-item span{
+    color:#747d8d;
+    font-size:12px;
+    text-transform:uppercase;
+    letter-spacing:1px;
+}
+
+/* INTRO */
+
+.intro{
+    padding:100px 7%;
+    border-top:1px solid #121722;
+    background:#080b12;
+}
+
+.intro-container{
+    max-width:1200px;
+    margin:auto;
+}
+
+.section-label{
+    color:#39e6ff;
+    font-size:12px;
+    letter-spacing:3px;
+    margin-bottom:18px;
+}
+
+.intro h2{
+    max-width:900px;
+    font-size:clamp(35px,5vw,65px);
+    line-height:1.1;
+    letter-spacing:-2px;
+}
+
+.intro h2 span{
+    color:#697181;
+}
+
+/* CARDS */
+
+.cards{
+    margin-top:65px;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.card{
+    padding:32px;
+    min-height:270px;
+    background:#0c1019;
+    border:1px solid #181e2a;
+    border-radius:18px;
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-7px);
+    border-color:#39e6ff;
+}
+
+.card-number{
+    color:#39e6ff;
+    font-size:13px;
+}
+
+.card h3{
+    margin-top:55px;
+    margin-bottom:15px;
+    font-size:24px;
+}
+
+.card p{
+    color:#838c9d;
+    line-height:1.7;
+    font-size:14px;
+}
+
+/* QUOTE */
+
+.statement{
+    padding:120px 7%;
+    text-align:center;
+    background:#05070c;
+}
+
+.statement p{
+    max-width:900px;
+    margin:auto;
+    font-size:clamp(30px,5vw,60px);
+    line-height:1.2;
+    font-weight:700;
+}
+
+.statement span{
+    color:#39e6ff;
+}
+
+/* FOOTER */
+
+footer{
+    border-top:1px solid #141923;
+    padding:30px 7%;
+    color:#646d7c;
+    font-size:13px;
+    display:flex;
+    justify-content:space-between;
+}
+
+/* MOBILE */
+
+@media(max-width:850px){
+
+    nav{
+        height:65px;
+    }
+
+    .menu{
+        gap:13px;
+    }
+
+    .menu a{
+        font-size:11px;
+    }
+
+    .hero{
+        padding-top:120px;
+    }
+
+    .hero h1{
+        letter-spacing:-3px;
+    }
+
+    .cards{
+        grid-template-columns:1fr;
+    }
+
+    .status{
+        gap:25px;
+    }
+}
+
+@media(max-width:550px){
+
+    .menu li:nth-child(3),
+    .menu li:nth-child(4){
+        display:none;
+    }
+
+    .hero h1{
+        font-size:55px;
+    }
+
+    .hero-description{
+        font-size:16px;
+    }
+
+    footer{
+        flex-direction:column;
+        gap:10px;
+    }
+}
+.hamburger{
+    display:none;
+    font-size:28px;
+    color:#39e6ff;
+    cursor:pointer;
+}
+
+@media(max-width:550px){
+    .hamburger{
+        display:block;
+    }
+}
+@media(max-width:550px){
+    .menu{
+        display:none;
+        position:absolute;
+        top:65px;
+        right:6%;
+        width:220px;
+        padding:20px;
+        flex-direction:column;
+        gap:18px;
+        background:#0c111a;
+        border:1px solid #1f2a38;
+        border-radius:14px;
+    }
+
+    .menu.show{
+        display:flex;
+    }
+
+    .menu li{
+        display:block !important;
+    }
+}
+</style>
+</head>
+
+
+<body>
+
+<header>
+<nav>
+
+<div class="logo">
+    BISHAL<span>.</span>
+</div>
+<div class="hamburger" onclick="toggleMenu()">☰</div>
+<ul class="menu">
+    <li><a class="active" href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="skills.html">Skills</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="contact.html">Contact</a></li>
+</ul>
+
+</nav>
+</header>
+
+
+<main>
+
+<section class="hero">
+
+<div class="glow-one"></div>
+<div class="glow-two"></div>
+
+<div class="hero-content">
+
+<div class="tag">
+    CREATIVE DEVELOPER • DIGITAL EXPLORER
+</div>
+
+<h1>
+I BUILD<br>
+DIGITAL <span>IDEAS.</span>
+</h1>
+
+<p class="hero-description">
+I'm Bishal Shirpali — a technology enthusiast and creative developer
+focused on turning ideas into clean, modern and engaging digital
+experiences. I explore code, design and emerging technology while
+constantly pushing myself to build something better than yesterday.
+</p>
+
+<div class="hero-buttons">
+
+<a href="projects.html" class="button main-button">
+Explore My Work →
+</a>
+
+<a href="about.html" class="button second-button">
+Discover My Story
+</a>
+
+</div>
+
+
+<div class="status">
+
+<div class="status-item">
+<strong>CSIT</strong>
+<span>Technology Journey</span>
+</div>
+
+<div class="status-item">
+<strong>Web</strong>
+<span>Development Focus</span>
+</div>
+
+<div class="status-item">
+<strong>∞</strong>
+<span>Ideas To Explore</span>
+</div>
+
+</div>
+
+</div>
+</section>
+
+
+<section class="intro">
+
+<div class="intro-container">
+
+<div class="section-label">
+BEYOND THE CODE
+</div>
+
+<h2>
+Technology is my playground.
+<span>
+I learn, experiment and transform ideas into experiences worth exploring.
+</span>
+</h2>
+
+
+<div class="cards">
+
+<div class="card">
+
+<span class="card-number">01 / CREATE</span>
+
+<h3>Digital Experiences</h3>
+
+<p>
+Exploring the intersection of technology and creativity to build
+modern web experiences with strong visual identity, thoughtful
+structure and an attention to the small details.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<span class="card-number">02 / EXPLORE</span>
+
+<h3>Technology</h3>
+
+<p>
+From programming fundamentals to modern development tools,
+I'm constantly expanding my understanding of how technology
+works and how powerful ideas become real products.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<span class="card-number">03 / EVOLVE</span>
+
+<h3>Continuous Growth</h3>
+
+<p>
+I see every project as an opportunity to improve. Experimentation,
+curiosity and continuous learning are at the center of the way
+I approach technology and development.
+</p>
+
+</div>
+
+</div>
+</div>
+</section>
+
+
+<section class="statement">
+
+<p>
+Not just learning how to code —
+learning how to <span>create.</span>
+</p>
+
+</section>
+
+</main>
+
+
+<footer>
+
+<span>© 2026 Bishal Shirpali</span>
+
+<span>Designed & Built with curiosity.</span>
+
+</footer>
+<script>
+function toggleMenu(){
+    document.querySelector(".menu").classList.toggle("show");
+}
+</script>
+</body>
+</html>

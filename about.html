@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>About | Bishal Shirpali</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{scroll-behavior:smooth;}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:#05070c;
+    color:#fff;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+/* NAVBAR */
+
+header{
+    position:fixed;
+    top:0;
+    width:100%;
+    z-index:1000;
+    background:rgba(5,7,12,.85);
+    backdrop-filter:blur(18px);
+    border-bottom:1px solid rgba(255,255,255,.07);
+}
+
+nav{
+    max-width:1400px;
+    margin:auto;
+    height:75px;
+    padding:0 6%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    font-size:25px;
+    font-weight:800;
+}
+
+.logo span{color:#39e6ff;}
+
+.menu{
+    display:flex;
+    list-style:none;
+    gap:27px;
+}
+
+.menu a{
+    color:#a8afbd;
+    font-size:14px;
+    transition:.25s;
+}
+
+.menu a:hover,
+.menu .active{
+    color:#39e6ff;
+}
+
+/* HERO */
+
+.hero{
+    min-height:78vh;
+    padding:160px 7% 90px;
+    display:flex;
+    align-items:center;
+    position:relative;
+    overflow:hidden;
+}
+
+.glow{
+    position:absolute;
+    width:500px;
+    height:500px;
+    right:-180px;
+    top:100px;
+    background:#00d9ff;
+    filter:blur(190px);
+    opacity:.12;
+}
+
+.hero-content{
+    max-width:1050px;
+    position:relative;
+    z-index:2;
+}
+
+.label{
+    color:#39e6ff;
+    font-size:12px;
+    letter-spacing:3px;
+    margin-bottom:22px;
+}
+
+.hero h1{
+    font-size:clamp(55px,9vw,110px);
+    line-height:.95;
+    letter-spacing:-5px;
+}
+
+.hero h1 span{
+    color:#39e6ff;
+}
+
+.hero p{
+    max-width:720px;
+    color:#939bab;
+    font-size:18px;
+    line-height:1.8;
+    margin-top:32px;
+}
+
+/* STORY */
+
+.story{
+    padding:100px 7%;
+    background:#080b12;
+    border-top:1px solid #131823;
+}
+
+.container{
+    max-width:1200px;
+    margin:auto;
+}
+
+.story-grid{
+    display:grid;
+    grid-template-columns:.7fr 1.3fr;
+    gap:80px;
+}
+
+.story-title{
+    font-size:15px;
+    color:#39e6ff;
+    letter-spacing:2px;
+}
+
+.story-text h2{
+    font-size:clamp(32px,5vw,55px);
+    line-height:1.15;
+    margin-bottom:30px;
+}
+
+.story-text p{
+    color:#8e97a7;
+    line-height:1.9;
+    margin-bottom:20px;
+    font-size:16px;
+}
+
+/* PHILOSOPHY */
+
+.philosophy{
+    padding:100px 7%;
+}
+
+.philosophy h2{
+    font-size:45px;
+    margin-bottom:50px;
+}
+
+.philosophy h2 span{
+    color:#39e6ff;
+}
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.card{
+    background:#0b1019;
+    border:1px solid #18202d;
+    border-radius:18px;
+    padding:32px;
+    min-height:260px;
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-7px);
+    border-color:#39e6ff;
+}
+
+.number{
+    color:#39e6ff;
+    font-size:13px;
+}
+
+.card h3{
+    margin:55px 0 15px;
+    font-size:24px;
+}
+
+.card p{
+    color:#858e9e;
+    line-height:1.7;
+}
+
+/* DETAILS */
+
+.details{
+    padding:100px 7%;
+    background:#080b12;
+}
+
+.details-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
+}
+
+.detail{
+    padding:35px;
+    border:1px solid #18202c;
+    border-radius:16px;
+    background:#0c1018;
+}
+
+.detail small{
+    color:#39e6ff;
+    letter-spacing:2px;
+}
+
+.detail h3{
+    font-size:25px;
+    margin:18px 0;
+}
+
+.detail p{
+    color:#87909f;
+    line-height:1.8;
+}
+
+/* CTA */
+
+.cta{
+    padding:120px 7%;
+    text-align:center;
+}
+
+.cta h2{
+    font-size:clamp(40px,7vw,75px);
+    margin-bottom:25px;
+}
+
+.cta h2 span{
+    color:#39e6ff;
+}
+
+.cta p{
+    color:#8c95a5;
+    margin-bottom:35px;
+}
+
+.button{
+    display:inline-block;
+    padding:15px 26px;
+    background:#39e6ff;
+    color:#051014;
+    border-radius:9px;
+    font-weight:bold;
+}
+
+/* FOOTER */
+
+footer{
+    padding:30px 7%;
+    border-top:1px solid #141923;
+    display:flex;
+    justify-content:space-between;
+    color:#646d7c;
+    font-size:13px;
+}
+
+/* MOBILE */
+
+@media(max-width:850px){
+
+    nav{height:65px;}
+
+    .menu{
+        gap:13px;
+    }
+
+    .menu a{
+        font-size:11px;
+    }
+
+    .story-grid{
+        grid-template-columns:1fr;
+        gap:30px;
+    }
+
+    .cards,
+    .details-grid{
+        grid-template-columns:1fr;
+    }
+}
+
+@media(max-width:550px){
+
+    .menu li:nth-child(3),
+    .menu li:nth-child(4){
+        display:none;
+    }
+
+    .hero h1{
+        font-size:58px;
+        letter-spacing:-3px;
+    }
+
+    footer{
+        flex-direction:column;
+        gap:10px;
+    }
+}
+.hamburger{
+    display:none;
+    font-size:28px;
+    color:#39e6ff;
+    cursor:pointer;
+}
+
+@media(max-width:550px){
+    .hamburger{
+        display:block;
+    }
+
+    .menu{
+        display:none;
+        position:absolute;
+        top:65px;
+        right:6%;
+        width:220px;
+        padding:20px;
+        flex-direction:column;
+        gap:18px;
+        background:#0c111a;
+        border:1px solid #1f2a38;
+        border-radius:14px;
+    }
+
+    .menu.show{
+        display:flex;
+    }
+
+    .menu li{
+        display:block !important;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<nav>
+
+<a href="index.html" class="logo">
+BISHAL<span>.</span>
+</a>
+<div class="hamburger" onclick="toggleMenu()">☰</div>
+<ul class="menu">
+<li><a href="index.html">Home</a></li>
+<li><a class="active" href="about.html">About</a></li>
+<li><a href="skills.html">Skills</a></li>
+<li><a href="projects.html">Projects</a></li>
+<li><a href="contact.html">Contact</a></li>
+</ul>
+
+</nav>
+</header>
+
+
+<main>
+
+<section class="hero">
+
+<div class="glow"></div>
+
+<div class="hero-content">
+
+<div class="label">WHO I AM / ABOUT</div>
+
+<h1>
+MORE THAN<br>
+JUST <span>CODE.</span>
+</h1>
+
+<p>
+I'm Bishal Shirpali — a creative developer, technology enthusiast
+and lifelong learner fascinated by the ideas shaping our digital world.
+For me, technology isn't simply something to study; it's a space to
+experiment, create, solve problems and continuously evolve.
+</p>
+
+</div>
+</section>
+
+
+<section class="story">
+
+<div class="container">
+
+<div class="story-grid">
+
+<div class="story-title">
+MY STORY
+</div>
+
+<div class="story-text">
+
+<h2>
+Curiosity turned into a journey of building.
+</h2>
+
+<p>
+My journey into technology began with a simple curiosity:
+understanding how the digital products we use every day actually work.
+That curiosity gradually became something bigger — a desire to build,
+experiment and create things of my own.
+</p>
+
+<p>
+Today, as a BSc CSIT student, I'm developing a foundation across
+computer science while independently exploring programming, web
+development and modern digital technologies.
+</p>
+
+<p>
+I don't see learning as something limited to classrooms or textbooks.
+Some of the most valuable lessons come from experimenting, making
+mistakes, rebuilding ideas and discovering better solutions.
+</p>
+
+<p>
+My long-term direction is simple: keep improving, build meaningful
+things and develop the technical and creative ability to turn ambitious
+ideas into real digital experiences.
+</p>
+
+</div>
+</div>
+
+</div>
+</section>
+
+
+<section class="philosophy">
+
+<div class="container">
+
+<div class="label">HOW I THINK</div>
+
+<h2>My <span>Philosophy.</span></h2>
+
+<div class="cards">
+
+<div class="card">
+<span class="number">01 / CURIOSITY</span>
+
+<h3>Question Everything</h3>
+
+<p>
+I believe curiosity is one of the strongest tools for growth.
+Understanding why something works matters just as much as knowing
+how to use it.
+</p>
+</div>
+
+
+<div class="card">
+<span class="number">02 / CREATION</span>
+
+<h3>Build To Learn</h3>
+
+<p>
+Ideas become far more valuable when they leave your head.
+I prefer experimenting, building and improving through real projects.
+</p>
+</div>
+
+
+<div class="card">
+<span class="number">03 / PROGRESS</span>
+
+<h3>Never Stay Still</h3>
+
+<p>
+Technology changes constantly. My goal isn't to know everything —
+it's to develop the ability to continuously learn and adapt.
+</p>
+</div>
+
+</div>
+</div>
+</section>
+
+
+<section class="details">
+
+<div class="container">
+
+<div class="label">A LITTLE MORE</div>
+
+<div class="details-grid">
+
+<div class="detail">
+<small>01 / EDUCATION</small>
+
+<h3>Computer Science</h3>
+
+<p>
+Currently pursuing BSc CSIT and building a broader understanding
+of programming, computing systems, problem solving and the
+fundamentals behind modern technology.
+</p>
+</div>
+
+
+<div class="detail">
+<small>02 / DEVELOPMENT</small>
+
+<h3>Web & Programming</h3>
+
+<p>
+Exploring front-end development and programming while learning
+how design, structure and code come together to create polished
+digital experiences.
+</p>
+</div>
+
+
+<div class="detail">
+<small>03 / INTERESTS</small>
+
+<h3>Beyond Development</h3>
+
+<p>
+My interests extend beyond writing code. I'm fascinated by emerging
+technology, digital design, artificial intelligence and how technology
+continues to reshape everyday life.
+</p>
+</div>
+
+
+<div class="detail">
+<small>04 / DIRECTION</small>
+
+<h3>Building Forward</h3>
+
+<p>
+This portfolio represents a beginning rather than a finished story.
+Every new project, skill and challenge becomes another step toward
+becoming a stronger and more versatile developer.
+</p>
+</div>
+
+</div>
+</div>
+</section>
+
+
+<section class="cta">
+
+<div class="label">NEXT / EXPLORE</div>
+
+<h2>
+See what I can <span>build.</span>
+</h2>
+
+<p>
+Explore the technologies I'm learning and the projects I'm creating.
+</p>
+
+<a href="projects.html" class="button">
+Explore Projects →
+</a>
+
+</section>
+
+</main>
+
+
+<footer>
+<span>© 2026 Bishal Shirpali</span>
+<span>Learning • Creating • Evolving</span>
+</footer>
+<script>
+function toggleMenu(){
+    document.querySelector(".menu").classList.toggle("show");
+}
+</script>
+</body>
+</html>

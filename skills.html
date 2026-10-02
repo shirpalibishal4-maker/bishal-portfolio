@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Skills | Bishal Shirpali</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:#05070c;
+    color:white;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+/* NAVIGATION */
+
+header{
+    position:fixed;
+    top:0;
+    width:100%;
+    z-index:1000;
+    background:rgba(5,7,12,.86);
+    backdrop-filter:blur(18px);
+    border-bottom:1px solid rgba(255,255,255,.07);
+}
+
+nav{
+    max-width:1400px;
+    margin:auto;
+    height:75px;
+    padding:0 6%;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.logo{
+    font-size:25px;
+    font-weight:800;
+}
+
+.logo span{
+    color:#39e6ff;
+}
+
+.menu{
+    display:flex;
+    list-style:none;
+    gap:27px;
+}
+
+.menu a{
+    color:#a8afbd;
+    font-size:14px;
+    transition:.25s;
+}
+
+.menu a:hover,
+.menu .active{
+    color:#39e6ff;
+}
+
+/* HERO */
+
+.hero{
+    min-height:75vh;
+    padding:160px 7% 90px;
+    display:flex;
+    align-items:center;
+    position:relative;
+    overflow:hidden;
+}
+
+.glow{
+    position:absolute;
+    width:500px;
+    height:500px;
+    right:-170px;
+    top:80px;
+    background:#00d9ff;
+    filter:blur(190px);
+    opacity:.12;
+}
+
+.hero-content{
+    position:relative;
+    z-index:2;
+    max-width:1000px;
+}
+
+.label{
+    color:#39e6ff;
+    font-size:12px;
+    letter-spacing:3px;
+    margin-bottom:22px;
+}
+
+.hero h1{
+    font-size:clamp(55px,9vw,110px);
+    line-height:.94;
+    letter-spacing:-5px;
+}
+
+.hero h1 span{
+    color:#39e6ff;
+}
+
+.hero p{
+    max-width:730px;
+    margin-top:30px;
+    color:#929aaa;
+    font-size:18px;
+    line-height:1.8;
+}
+
+/* GENERAL */
+
+.container{
+    max-width:1200px;
+    margin:auto;
+}
+
+section.content{
+    padding:100px 7%;
+}
+
+.section-title{
+    font-size:clamp(36px,5vw,58px);
+    margin-bottom:15px;
+}
+
+.section-title span{
+    color:#39e6ff;
+}
+
+.section-description{
+    color:#858e9e;
+    max-width:700px;
+    line-height:1.8;
+    margin-bottom:50px;
+}
+
+/* SKILL CARDS */
+
+.skill-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
+}
+
+.skill-card{
+    background:#0b1019;
+    border:1px solid #18202d;
+    border-radius:18px;
+    padding:32px;
+    transition:.3s;
+}
+
+.skill-card:hover{
+    border-color:#39e6ff;
+    transform:translateY(-5px);
+}
+
+.skill-card small{
+    color:#39e6ff;
+    letter-spacing:2px;
+}
+
+.skill-card h3{
+    font-size:25px;
+    margin:17px 0 12px;
+}
+
+.skill-card p{
+    color:#838d9e;
+    line-height:1.7;
+}
+
+/* TAGS */
+
+.tags{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-top:25px;
+}
+
+.tag{
+    padding:9px 14px;
+    border-radius:50px;
+    background:#101722;
+    border:1px solid #202b3b;
+    color:#b7bfcc;
+    font-size:13px;
+}
+
+/* LEVELS */
+
+.levels{
+    background:#080b12;
+    border-top:1px solid #151b27;
+    border-bottom:1px solid #151b27;
+}
+
+.level-list{
+    display:grid;
+    gap:32px;
+}
+
+.level-top{
+    display:flex;
+    justify-content:space-between;
+    margin-bottom:12px;
+}
+
+.level-top span{
+    color:#cbd1db;
+}
+
+.level-top small{
+    color:#39e6ff;
+}
+
+.bar{
+    width:100%;
+    height:5px;
+    background:#171e2a;
+    border-radius:20px;
+    overflow:hidden;
+}
+
+.progress{
+    height:100%;
+    background:#39e6ff;
+    border-radius:20px;
+}
+
+.html{width:78%;}
+.css{width:68%;}
+.javascript{width:42%;}
+.c{width:48%;}
+
+/* EXPLORING */
+
+.explore-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.explore{
+    min-height:240px;
+    border:1px solid #18202d;
+    border-radius:18px;
+    padding:30px;
+    background:#0b1019;
+}
+
+.explore .number{
+    color:#39e6ff;
+    font-size:13px;
+}
+
+.explore h3{
+    margin:50px 0 15px;
+    font-size:23px;
+}
+
+.explore p{
+    color:#838d9e;
+    line-height:1.7;
+}
+
+/* WORKFLOW */
+
+.workflow{
+    background:#080b12;
+}
+
+.steps{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:15px;
+}
+
+.step{
+    padding:28px;
+    border-left:1px solid #293242;
+}
+
+.step strong{
+    display:block;
+    color:#39e6ff;
+    font-size:13px;
+    margin-bottom:25px;
+}
+
+.step h3{
+    margin-bottom:12px;
+}
+
+.step p{
+    color:#7e8797;
+    line-height:1.6;
+    font-size:14px;
+}
+
+/* CTA */
+
+.cta{
+    padding:120px 7%;
+    text-align:center;
+}
+
+.cta h2{
+    font-size:clamp(40px,7vw,75px);
+    margin-bottom:20px;
+}
+
+.cta h2 span{
+    color:#39e6ff;
+}
+
+.cta p{
+    color:#8992a2;
+    margin-bottom:35px;
+}
+
+.button{
+    display:inline-block;
+    background:#39e6ff;
+    color:#041014;
+    padding:15px 26px;
+    border-radius:9px;
+    font-weight:bold;
+}
+
+/* FOOTER */
+
+footer{
+    padding:30px 7%;
+    border-top:1px solid #141923;
+    display:flex;
+    justify-content:space-between;
+    color:#646d7c;
+    font-size:13px;
+}
+
+/* MOBILE */
+
+@media(max-width:850px){
+
+    nav{
+        height:65px;
+    }
+
+    .menu{
+        gap:13px;
+    }
+
+    .menu a{
+        font-size:11px;
+    }
+
+    .skill-grid,
+    .explore-grid{
+        grid-template-columns:1fr;
+    }
+
+    .steps{
+        grid-template-columns:repeat(2,1fr);
+    }
+}
+
+@media(max-width:550px){
+
+    .menu li:nth-child(3),
+    .menu li:nth-child(4){
+        display:none;
+    }
+
+    .hero h1{
+        font-size:58px;
+        letter-spacing:-3px;
+    }
+
+    .steps{
+        grid-template-columns:1fr;
+    }
+
+    footer{
+        flex-direction:column;
+        gap:10px;
+    }
+}
+.hamburger{
+    display:none;
+    font-size:28px;
+    color:#39e6ff;
+    cursor:pointer;
+}
+
+@media(max-width:550px){
+    .hamburger{
+        display:block;
+    }
+
+    .menu{
+        display:none;
+        position:absolute;
+        top:65px;
+        right:6%;
+        width:220px;
+        padding:20px;
+        flex-direction:column;
+        gap:18px;
+        background:#0c111a;
+        border:1px solid #1f2a38;
+        border-radius:14px;
+    }
+
+    .menu.show{
+        display:flex;
+    }
+
+    .menu li{
+        display:block !important;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<nav>
+
+<a href="index.html" class="logo">
+BISHAL<span>.</span>
+</a>
+<div class="hamburger" onclick="toggleMenu()">☰</div>
+<ul class="menu">
+<li><a href="index.html">Home</a></li>
+<li><a href="about.html">About</a></li>
+<li><a class="active" href="skills.html">Skills</a></li>
+<li><a href="projects.html">Projects</a></li>
+<li><a href="contact.html">Contact</a></li>
+</ul>
+
+</nav>
+</header>
+
+
+<main>
+
+<section class="hero">
+
+<div class="glow"></div>
+
+<div class="hero-content">
+
+<div class="label">CAPABILITIES / SKILLS</div>
+
+<h1>
+TOOLS TO<br>
+TURN <span>IDEAS</span><br>
+INTO REALITY.
+</h1>
+
+<p>
+I combine programming fundamentals, web technologies and creative
+problem solving to explore how digital ideas move from imagination
+to functional experiences. My toolkit continues to grow with every
+project I build.
+</p>
+
+</div>
+</section>
+
+
+<section class="content">
+
+<div class="container">
+
+<div class="label">MY TOOLKIT</div>
+
+<h2 class="section-title">
+Technical <span>Foundation.</span>
+</h2>
+
+<p class="section-description">
+A growing collection of technologies, concepts and tools that
+form the foundation of my development journey.
+</p>
+
+
+<div class="skill-grid">
+
+<div class="skill-card">
+<small>01 / FRONTEND</small>
+
+<h3>Web Development</h3>
+
+<p>
+Building structured, responsive and visually engaging web
+interfaces while exploring the principles behind modern
+front-end development.
+</p>
+
+<div class="tags">
+<span class="tag">HTML5</span>
+<span class="tag">CSS3</span>
+<span class="tag">JavaScript</span>
+<span class="tag">Responsive Design</span>
+</div>
+</div>
+
+
+<div class="skill-card">
+<small>02 / PROGRAMMING</small>
+
+<h3>Core Programming</h3>
+
+<p>
+Developing programming fundamentals through problem solving,
+logical thinking and understanding how instructions become
+working software.
+</p>
+
+<div class="tags">
+<span class="tag">C</span>
+<span class="tag">JavaScript</span>
+<span class="tag">Algorithms</span>
+<span class="tag">Problem Solving</span>
+</div>
+</div>
+
+
+<div class="skill-card">
+<small>03 / DEVELOPMENT</small>
+
+<h3>Developer Tools</h3>
+
+<p>
+Learning the tools and workflows used to organize, build,
+test and publish digital projects efficiently.
+</p>
+
+<div class="tags">
+<span class="tag">GitHub</span>
+<span class="tag">Git</span>
+<span class="tag">Code Editors</span>
+<span class="tag">Browser Tools</span>
+</div>
+</div>
+
+
+<div class="skill-card">
+<small>04 / CREATIVE</small>
+
+<h3>Digital Design Thinking</h3>
+
+<p>
+Exploring how typography, spacing, hierarchy and interaction
+can transform functional code into polished digital experiences.
+</p>
+
+<div class="tags">
+<span class="tag">UI Thinking</span>
+<span class="tag">Layout</span>
+<span class="tag">Typography</span>
+<span class="tag">UX Basics</span>
+</div>
+</div>
+
+</div>
+</div>
+</section>
+
+
+<section class="content levels">
+
+<div class="container">
+
+<div class="label">CURRENT PROGRESS</div>
+
+<h2 class="section-title">
+Always <span>Improving.</span>
+</h2>
+
+<p class="section-description">
+Development is a continuous process. These bars represent my
+current learning focus rather than a finish line.
+</p>
+
+
+<div class="level-list">
+
+<div>
+<div class="level-top">
+<span>HTML / Structure</span>
+<small>STRONG FOCUS</small>
+</div>
+
+<div class="bar">
+<div class="progress html"></div>
+</div>
+</div>
+
+
+<div>
+<div class="level-top">
+<span>CSS / Interface Design</span>
+<small>BUILDING</small>
+</div>
+
+<div class="bar">
+<div class="progress css"></div>
+</div>
+</div>
+
+
+<div>
+<div class="level-top">
+<span>C Programming</span>
+<small>DEVELOPING</small>
+</div>
+
+<div class="bar">
+<div class="progress c"></div>
+</div>
+</div>
+
+
+<div>
+<div class="level-top">
+<span>JavaScript</span>
+<small>EXPLORING</small>
+</div>
+
+<div class="bar">
+<div class="progress javascript"></div>
+</div>
+</div>
+
+</div>
+</div>
+</section>
+
+
+<section class="content">
+
+<div class="container">
+
+<div class="label">BEYOND TODAY</div>
+
+<h2 class="section-title">
+Currently <span>Exploring.</span>
+</h2>
+
+<p class="section-description">
+The technologies and ideas I'm gradually moving toward as my
+foundation becomes stronger.
+</p>
+
+
+<div class="explore-grid">
+
+<div class="explore">
+<span class="number">01 / WEB</span>
+
+<h3>Modern Frontend</h3>
+
+<p>
+Moving beyond static pages toward interactive interfaces,
+modern JavaScript and more advanced web development.
+</p>
+</div>
+
+
+<div class="explore">
+<span class="number">02 / INTELLIGENCE</span>
+
+<h3>Artificial Intelligence</h3>
+
+<p>
+Exploring the rapidly evolving world of AI and understanding
+how intelligent systems can become part of future software.
+</p>
+</div>
+
+
+<div class="explore">
+<span class="number">03 / COMPUTING</span>
+
+<h3>Computer Science</h3>
+
+<p>
+Building deeper foundations in algorithms, software,
+computer systems and the principles behind computing.
+</p>
+</div>
+
+</div>
+</div>
+</section>
+
+
+<section class="content workflow">
+
+<div class="container">
+
+<div class="label">HOW I BUILD</div>
+
+<h2 class="section-title">
+From thought to <span>screen.</span>
+</h2>
+
+<div class="steps">
+
+<div class="step">
+<strong>01</strong>
+<h3>Imagine</h3>
+<p>
+Start with an idea, problem or experience worth creating.
+</p>
+</div>
+
+<div class="step">
+<strong>02</strong>
+<h3>Plan</h3>
+<p>
+Break the idea into structure, content and smaller challenges.
+</p>
+</div>
+
+<div class="step">
+<strong>03</strong>
+<h3>Build</h3>
+<p>
+Turn the concept into working code through experimentation.
+</p>
+</div>
+
+<div class="step">
+<strong>04</strong>
+<h3>Improve</h3>
+<p>
+Review, refine and keep pushing the result further.
+</p>
+</div>
+
+</div>
+</div>
+</section>
+
+
+<section class="cta">
+
+<div class="label">NEXT / PROJECTS</div>
+
+<h2>
+Skills become real<br>
+when you <span>build.</span>
+</h2>
+
+<p>
+Take a look at the projects and experiments behind my journey.
+</p>
+
+<a href="projects.html" class="button">
+View My Projects →
+</a>
+
+</section>
+
+</main>
+
+
+<footer>
+<span>© 2026 Bishal Shirpali</span>
+<span>Learn • Build • Improve</span>
+</footer>
+<script>
+function toggleMenu(){
+    document.querySelector(".menu").classList.toggle("show");
+}
+</script>
+</body>
+</html>

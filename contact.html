@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Contact | Bishal Shirpali</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:#05070c;
+    color:#fff;
+}
+
+a{text-decoration:none;color:inherit;}
+
+header{
+    position:fixed;
+    top:0;
+    width:100%;
+    z-index:1000;
+    background:rgba(5,7,12,.86);
+    backdrop-filter:blur(18px);
+    border-bottom:1px solid rgba(255,255,255,.07);
+}
+
+nav{
+    max-width:1400px;
+    margin:auto;
+    height:75px;
+    padding:0 6%;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.logo{
+    font-size:25px;
+    font-weight:800;
+}
+
+.logo span{color:#39e6ff;}
+
+.menu{
+    display:flex;
+    list-style:none;
+    gap:27px;
+}
+
+.menu a{
+    color:#a8afbd;
+    font-size:14px;
+    transition:.25s;
+}
+
+.menu a:hover,.menu .active{
+    color:#39e6ff;
+}
+
+/* HERO */
+
+.hero{
+    min-height:70vh;
+    padding:160px 7% 80px;
+    display:flex;
+    align-items:center;
+    position:relative;
+    overflow:hidden;
+}
+
+.glow{
+    position:absolute;
+    width:500px;
+    height:500px;
+    right:-170px;
+    top:80px;
+    background:#00d9ff;
+    filter:blur(190px);
+    opacity:.12;
+}
+
+.hero-content{
+    max-width:1000px;
+    position:relative;
+    z-index:2;
+}
+
+.label{
+    color:#39e6ff;
+    font-size:12px;
+    letter-spacing:3px;
+    margin-bottom:22px;
+}
+
+.hero h1{
+    font-size:clamp(55px,9vw,110px);
+    line-height:.94;
+    letter-spacing:-5px;
+}
+
+.hero h1 span{color:#39e6ff;}
+
+.hero p{
+    max-width:700px;
+    margin-top:30px;
+    color:#929aaa;
+    font-size:18px;
+    line-height:1.8;
+}
+
+/* CONTACT */
+
+.contact{
+    padding:100px 7%;
+    background:#080b12;
+    border-top:1px solid #151b27;
+}
+
+.container{
+    max-width:1200px;
+    margin:auto;
+}
+
+.contact-grid{
+    display:grid;
+    grid-template-columns:.8fr 1.2fr;
+    gap:60px;
+}
+
+.left h2{
+    font-size:clamp(35px,5vw,58px);
+    line-height:1.1;
+    margin-bottom:25px;
+}
+
+.left h2 span{color:#39e6ff;}
+
+.left > p{
+    color:#8992a2;
+    line-height:1.8;
+    margin-bottom:40px;
+}
+
+.info{
+    border-top:1px solid #1d2532;
+    padding:23px 0;
+}
+
+.info small{
+    display:block;
+    color:#687282;
+    letter-spacing:2px;
+    margin-bottom:8px;
+    font-size:10px;
+}
+
+.info strong{
+    font-size:16px;
+}
+
+.online{
+    display:inline-flex;
+    align-items:center;
+    gap:9px;
+}
+
+.dot{
+    width:8px;
+    height:8px;
+    border-radius:50%;
+    background:#39e6ff;
+    box-shadow:0 0 12px #39e6ff;
+}
+
+/* FORM */
+
+.form{
+    background:#0c111a;
+    border:1px solid #1a2331;
+    border-radius:20px;
+    padding:38px;
+}
+
+.form h3{
+    font-size:27px;
+    margin-bottom:30px;
+}
+
+.field{
+    margin-bottom:22px;
+}
+
+.field label{
+    display:block;
+    color:#8992a2;
+    font-size:12px;
+    margin-bottom:9px;
+}
+
+input,textarea{
+    width:100%;
+    background:#080c13;
+    border:1px solid #202a39;
+    color:white;
+    padding:15px;
+    border-radius:9px;
+    outline:none;
+    font-family:inherit;
+    transition:.25s;
+}
+
+input:focus,textarea:focus{
+    border-color:#39e6ff;
+}
+
+textarea{
+    height:150px;
+    resize:none;
+}
+
+button{
+    width:100%;
+    border:0;
+    padding:16px;
+    border-radius:9px;
+    background:#39e6ff;
+    color:#041014;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+/* CONNECT */
+
+.connect{
+    padding:100px 7%;
+}
+
+.connect h2{
+    font-size:clamp(35px,5vw,58px);
+    margin-bottom:45px;
+}
+
+.connect h2 span{color:#39e6ff;}
+
+.social-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+}
+
+.social{
+    min-height:180px;
+    padding:28px;
+    border:1px solid #19212e;
+    border-radius:17px;
+    background:#0b1018;
+    transition:.3s;
+}
+
+.social:hover{
+    transform:translateY(-5px);
+    border-color:#39e6ff;
+}
+
+.social small{
+    color:#39e6ff;
+    letter-spacing:2px;
+}
+
+.social h3{
+    margin:45px 0 8px;
+    font-size:22px;
+}
+
+.social p{
+    color:#7e8797;
+    font-size:13px;
+}
+
+/* END */
+
+.end{
+    padding:120px 7%;
+    text-align:center;
+    background:#080b12;
+}
+
+.end h2{
+    font-size:clamp(45px,8vw,90px);
+    line-height:1;
+}
+
+.end h2 span{color:#39e6ff;}
+
+.end p{
+    color:#858e9e;
+    margin-top:25px;
+}
+
+/* FOOTER */
+
+footer{
+    padding:30px 7%;
+    border-top:1px solid #141923;
+    display:flex;
+    justify-content:space-between;
+    color:#646d7c;
+    font-size:13px;
+}
+
+/* MOBILE */
+
+@media(max-width:850px){
+    nav{height:65px;}
+    .menu{gap:13px;}
+    .menu a{font-size:11px;}
+
+    .contact-grid{
+        grid-template-columns:1fr;
+    }
+
+    .social-grid{
+        grid-template-columns:1fr;
+    }
+}
+
+@media(max-width:550px){
+    .menu li:nth-child(3),
+    .menu li:nth-child(4){
+        display:none;
+    }
+
+    .hero h1{
+        font-size:58px;
+        letter-spacing:-3px;
+    }
+
+    .form{padding:25px;}
+
+    footer{
+        flex-direction:column;
+        gap:10px;
+    }
+}
+.hamburger{
+    display:none;
+    font-size:28px;
+    color:#39e6ff;
+    cursor:pointer;
+}
+
+@media(max-width:550px){
+    .hamburger{
+        display:block;
+    }
+
+    .menu{
+        display:none;
+        position:absolute;
+        top:65px;
+        right:6%;
+        width:220px;
+        padding:20px;
+        flex-direction:column;
+        gap:18px;
+        background:#0c111a;
+        border:1px solid #1f2a38;
+        border-radius:14px;
+    }
+
+    .menu.show{
+        display:flex;
+    }
+
+    .menu li{
+        display:block !important;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<nav>
+
+<a href="index.html" class="logo">BISHAL<span>.</span></a>
+<div class="hamburger" onclick="toggleMenu()">☰</div>
+<ul class="menu">
+<li><a href="index.html">Home</a></li>
+<li><a href="about.html">About</a></li>
+<li><a href="skills.html">Skills</a></li>
+<li><a href="projects.html">Projects</a></li>
+<li><a class="active" href="contact.html">Contact</a></li>
+</ul>
+
+</nav>
+</header>
+
+<main>
+
+<section class="hero">
+
+<div class="glow"></div>
+
+<div class="hero-content">
+
+<div class="label">CONTACT / CONNECT</div>
+
+<h1>
+LET'S CREATE<br>
+SOMETHING <span>NEW.</span>
+</h1>
+
+<p>
+Great ideas often begin with a simple conversation. Whether it's
+technology, a creative concept, collaboration or simply an interesting
+idea worth discussing — I'm always open to connecting with curious
+people.
+</p>
+
+</div>
+</section>
+
+<section class="contact">
+
+<div class="container">
+
+<div class="contact-grid">
+
+<div class="left">
+
+<div class="label">GET IN TOUCH</div>
+
+<h2>
+Have something<br>
+<span>in mind?</span>
+</h2>
+
+<p>
+Send a message and tell me what you're thinking about.
+I'm always interested in new ideas, interesting projects
+and opportunities to learn something different.
+</p>
+
+<div class="info">
+<small>LOCATION</small>
+<strong>Nepal</strong>
+</div>
+
+<div class="info">
+<small>FIELD</small>
+<strong>Computer Science & Technology</strong>
+</div>
+
+<div class="info">
+<small>CURRENT STATUS</small>
+
+<strong class="online">
+<span class="dot"></span>
+Open to ideas & exploration
+</strong>
+</div>
+
+</div>
+
+
+<div class="form">
+
+<h3>Start a conversation.</h3>
+
+<form onsubmit="sendMessage(event)">
+
+<div class="field">
+<label>YOUR NAME</label>
+<input type="text" placeholder="What's your name?" required>
+</div>
+
+<div class="field">
+<label>YOUR EMAIL</label>
+<input type="email" placeholder="you@example.com" required>
+</div>
+
+<div class="field">
+<label>SUBJECT</label>
+<input type="text" placeholder="What would you like to talk about?">
+</div>
+
+<div class="field">
+<label>MESSAGE</label>
+<textarea placeholder="Tell me about your idea..." required></textarea>
+</div>
+
+<button type="submit">
+Send Message →
+</button>
+
+</form>
+
+</div>
+
+</div>
+</div>
+</section>
+
+
+<section class="connect">
+
+<div class="container">
+
+<div class="label">AROUND THE WEB</div>
+
+<h2>
+Find me <span>online.</span>
+</h2>
+
+<div class="social-grid">
+
+<div class="social">
+<small>01 / CODE</small>
+<h3>GitHub →</h3>
+<p>Projects, experiments and code.</p>
+</div>
+
+<div class="social">
+<small>02 / NETWORK</small>
+<h3>LinkedIn →</h3>
+<p>Professional journey and connections.</p>
+</div>
+
+<div class="social">
+<small>03 / SOCIAL</small>
+<h3>Social →</h3>
+<p>Ideas, moments and everything in between.</p>
+</div>
+
+</div>
+
+</div>
+</section>
+
+
+<section class="end">
+
+<div class="label">END / OR MAYBE THE BEGINNING</div>
+
+<h2>
+BUILD.<br>
+LEARN.<br>
+<span>EVOLVE.</span>
+</h2>
+
+<p>
+There's always something new waiting to be created.
+</p>
+
+</section>
+
+</main>
+
+
+<footer>
+<span>© 2026 Bishal Shirpali</span>
+<span>Made with curiosity in Nepal.</span>
+</footer>
+
+
+<script>
+function sendMessage(event){
+    event.preventDefault();
+
+    alert(
+        "Message form is currently in demo mode. Contact integration coming soon!"
+    );
+}
+</script>
+<script>
+function toggleMenu(){
+    document.querySelector(".menu").classList.toggle("show");
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Projects | Bishal Shirpali</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:#05070c;
+    color:#fff;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+/* NAVBAR */
+
+header{
+    position:fixed;
+    top:0;
+    width:100%;
+    z-index:1000;
+    background:rgba(5,7,12,.86);
+    backdrop-filter:blur(18px);
+    border-bottom:1px solid rgba(255,255,255,.07);
+}
+
+nav{
+    max-width:1400px;
+    margin:auto;
+    height:75px;
+    padding:0 6%;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.logo{
+    font-size:25px;
+    font-weight:800;
+}
+
+.logo span{color:#39e6ff;}
+
+.menu{
+    display:flex;
+    list-style:none;
+    gap:27px;
+}
+
+.menu a{
+    color:#a8afbd;
+    font-size:14px;
+    transition:.25s;
+}
+
+.menu a:hover,
+.menu .active{
+    color:#39e6ff;
+}
+
+/* HERO */
+
+.hero{
+    min-height:78vh;
+    padding:160px 7% 90px;
+    display:flex;
+    align-items:center;
+    position:relative;
+    overflow:hidden;
+}
+
+.glow{
+    position:absolute;
+    width:520px;
+    height:520px;
+    right:-180px;
+    top:100px;
+    background:#00d9ff;
+    filter:blur(190px);
+    opacity:.12;
+}
+
+.hero-content{
+    max-width:1050px;
+    position:relative;
+    z-index:2;
+}
+
+.label{
+    color:#39e6ff;
+    font-size:12px;
+    letter-spacing:3px;
+    margin-bottom:22px;
+}
+
+.hero h1{
+    font-size:clamp(55px,9vw,110px);
+    line-height:.94;
+    letter-spacing:-5px;
+}
+
+.hero h1 span{
+    color:#39e6ff;
+}
+
+.hero p{
+    max-width:750px;
+    margin-top:30px;
+    color:#929aaa;
+    font-size:18px;
+    line-height:1.8;
+}
+
+/* PROJECT AREA */
+
+.projects-section{
+    padding:100px 7%;
+    background:#080b12;
+    border-top:1px solid #151b27;
+}
+
+.container{
+    max-width:1200px;
+    margin:auto;
+}
+
+.section-title{
+    font-size:clamp(36px,5vw,58px);
+    margin-bottom:15px;
+}
+
+.section-title span{
+    color:#39e6ff;
+}
+
+.description{
+    max-width:720px;
+    color:#858e9e;
+    line-height:1.8;
+    margin-bottom:55px;
+}
+
+/* FEATURED */
+
+.featured{
+    padding:40px;
+    border:1px solid #1a2432;
+    border-radius:22px;
+    background:
+      radial-gradient(circle at 85% 20%,rgba(57,230,255,.10),transparent 35%),
+      #0c111b;
+    min-height:420px;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    transition:.3s;
+}
+
+.featured:hover{
+    border-color:#39e6ff;
+}
+
+.project-number{
+    color:#39e6ff;
+    letter-spacing:2px;
+    font-size:12px;
+}
+
+.featured h2{
+    font-size:clamp(38px,6vw,70px);
+    margin:20px 0;
+    letter-spacing:-2px;
+}
+
+.featured p{
+    max-width:700px;
+    color:#8993a4;
+    line-height:1.8;
+}
+
+.tags{
+    display:flex;
+    flex-wrap:wrap;
+    gap:9px;
+    margin-top:25px;
+}
+
+.tag{
+    padding:8px 13px;
+    border-radius:30px;
+    border:1px solid #263143;
+    background:#111925;
+    color:#aeb7c5;
+    font-size:12px;
+}
+
+.project-link{
+    display:inline-block;
+    margin-top:30px;
+    color:#39e6ff;
+    font-weight:bold;
+}
+
+/* PROJECT GRID */
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
+    margin-top:20px;
+}
+
+.project{
+    min-height:350px;
+    padding:32px;
+    background:#0c111a;
+    border:1px solid #19212e;
+    border-radius:20px;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    transition:.3s;
+}
+
+.project:hover{
+    transform:translateY(-6px);
+    border-color:#39e6ff;
+}
+
+.project h3{
+    font-size:30px;
+    margin:20px 0 15px;
+}
+
+.project p{
+    color:#818b9c;
+    line-height:1.7;
+}
+
+/* LAB */
+
+.lab{
+    padding:100px 7%;
+}
+
+.lab-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+}
+
+.lab-card{
+    border-left:1px solid #2a3444;
+    padding:25px;
+}
+
+.lab-card strong{
+    color:#39e6ff;
+    font-size:12px;
+}
+
+.lab-card h3{
+    margin:25px 0 12px;
+    font-size:21px;
+}
+
+.lab-card p{
+    color:#7f8999;
+    line-height:1.7;
+    font-size:14px;
+}
+
+/* CTA */
+
+.cta{
+    padding:120px 7%;
+    background:#080b12;
+    text-align:center;
+}
+
+.cta h2{
+    font-size:clamp(40px,7vw,75px);
+    margin-bottom:20px;
+}
+
+.cta h2 span{
+    color:#39e6ff;
+}
+
+.cta p{
+    color:#8992a2;
+    margin-bottom:35px;
+}
+
+.button{
+    display:inline-block;
+    padding:15px 26px;
+    background:#39e6ff;
+    color:#041014;
+    border-radius:9px;
+    font-weight:bold;
+}
+
+/* FOOTER */
+
+footer{
+    padding:30px 7%;
+    border-top:1px solid #141923;
+    display:flex;
+    justify-content:space-between;
+    color:#646d7c;
+    font-size:13px;
+}
+
+/* MOBILE */
+
+@media(max-width:850px){
+
+    nav{height:65px;}
+
+    .menu{gap:13px;}
+
+    .menu a{font-size:11px;}
+
+    .grid,
+    .lab-grid{
+        grid-template-columns:1fr;
+    }
+
+    .featured{
+        min-height:500px;
+        padding:28px;
+    }
+}
+
+@media(max-width:550px){
+
+    .menu li:nth-child(3),
+    .menu li:nth-child(4){
+        display:none;
+    }
+
+    .hero h1{
+        font-size:58px;
+        letter-spacing:-3px;
+    }
+
+    footer{
+        flex-direction:column;
+        gap:10px;
+    }
+}
+.hamburger{
+    display:none;
+    font-size:28px;
+    color:#39e6ff;
+    cursor:pointer;
+}
+
+@media(max-width:550px){
+    .hamburger{
+        display:block;
+    }
+
+    .menu{
+        display:none;
+        position:absolute;
+        top:65px;
+        right:6%;
+        width:220px;
+        padding:20px;
+        flex-direction:column;
+        gap:18px;
+        background:#0c111a;
+        border:1px solid #1f2a38;
+        border-radius:14px;
+    }
+
+    .menu.show{
+        display:flex;
+    }
+
+    .menu li{
+        display:block !important;
+    }
+}
+</style>
+</head>
+
+
+<body>
+
+<header>
+<nav>
+
+<a href="index.html" class="logo">
+BISHAL<span>.</span>
+</a>
+<div class="hamburger" onclick="toggleMenu()">☰</div>
+
+<ul class="menu">
+<li><a href="index.html">Home</a></li>
+<li><a href="about.html">About</a></li>
+<li><a href="skills.html">Skills</a></li>
+<li><a class="active" href="projects.html">Projects</a></li>
+<li><a href="contact.html">Contact</a></li>
+</ul>
+
+</nav>
+</header>
+
+
+<main>
+
+<section class="hero">
+
+<div class="glow"></div>
+
+<div class="hero-content">
+
+<div class="label">SELECTED WORK / PROJECTS</div>
+
+<h1>
+IDEAS.<br>
+EXPERIMENTS.<br>
+<span>CREATIONS.</span>
+</h1>
+
+<p>
+A growing collection of digital experiments, development projects
+and concepts created while exploring technology. Each project is
+another opportunity to solve a problem, test an idea and push my
+skills further.
+</p>
+
+</div>
+</section>
+
+
+<section class="projects-section">
+
+<div class="container">
+
+<div class="label">FEATURED PROJECT</div>
+
+<h2 class="section-title">
+Things I've been <span>building.</span>
+</h2>
+
+<p class="description">
+My work is constantly evolving. Some projects begin as simple
+experiments and gradually become more ambitious as I discover
+new technologies and better ways to build.
+</p>
+
+
+<div class="featured">
+
+<div>
+<span class="project-number">01 / FEATURED</span>
+
+<h2>Personal Portfolio</h2>
+
+<p>
+A multi-page personal website built from the ground up to create
+my own digital identity. The project combines responsive layouts,
+visual hierarchy, navigation and modern interface design into a
+single evolving experience.
+</p>
+
+<div class="tags">
+<span class="tag">HTML</span>
+<span class="tag">CSS</span>
+<span class="tag">Responsive Design</span>
+<span class="tag">UI Design</span>
+</div>
+</div>
+
+<a href="index.html" class="project-link">
+View Project →
+</a>
+
+</div>
+
+
+<div class="grid">
+
+<div class="project">
+
+<div>
+<span class="project-number">02 / CONCEPT</span>
+
+<h3>Digital Dashboard</h3>
+
+<p>
+An interface concept focused on presenting useful information
+through a clean dashboard experience, combining structured
+content with modern visual design.
+</p>
+
+<div class="tags">
+<span class="tag">UI Concept</span>
+<span class="tag">Web</span>
+<span class="tag">Design</span>
+</div>
+</div>
+
+<span class="project-link">In Development →</span>
+
+</div>
+
+
+<div class="project">
+
+<div>
+<span class="project-number">03 / EXPERIMENT</span>
+
+<h3>Interactive Web Lab</h3>
+
+<p>
+A collection of small web experiments designed to explore
+JavaScript interactions, animations and the possibilities of
+more dynamic browser experiences.
+</p>
+
+<div class="tags">
+<span class="tag">JavaScript</span>
+<span class="tag">Interaction</span>
+<span class="tag">Experiments</span>
+</div>
+</div>
+
+<span class="project-link">Exploring →</span>
+
+</div>
+
+
+<div class="project">
+
+<div>
+<span class="project-number">04 / PROGRAMMING</span>
+
+<h3>Logic Playground</h3>
+
+<p>
+A space for programming exercises, algorithms and small
+problem-solving challenges created while strengthening core
+computer science and programming fundamentals.
+</p>
+
+<div class="tags">
+<span class="tag">C</span>
+<span class="tag">Logic</span>
+<span class="tag">Algorithms</span>
+</div>
+</div>
+
+<span class="project-link">Growing →</span>
+
+</div>
+
+
+<div class="project">
+
+<div>
+<span class="project-number">05 / FUTURE</span>
+
+<h3>Project X</h3>
+
+<p>
+Reserved for something more ambitious. As my development
+toolkit expands, this space will evolve into a larger project
+combining technology, creativity and real-world problem solving.
+</p>
+
+<div class="tags">
+<span class="tag">Future</span>
+<span class="tag">Technology</span>
+<span class="tag">Innovation</span>
+</div>
+</div>
+
+<span class="project-link">Coming Soon →</span>
+
+</div>
+
+</div>
+
+</div>
+</section>
+
+
+<section class="lab">
+
+<div class="container">
+
+<div class="label">THE LAB</div>
+
+<h2 class="section-title">
+Not everything needs to be a <span>finished product.</span>
+</h2>
+
+<p class="description">
+Small experiments are where new skills begin. My development
+lab is a place for testing ideas without being afraid to rebuild them.
+</p>
+
+
+<div class="lab-grid">
+
+<div class="lab-card">
+<strong>01 / DESIGN</strong>
+<h3>Interface Experiments</h3>
+<p>
+Testing layouts, typography, visual hierarchy and responsive
+design ideas.
+</p>
+</div>
+
+<div class="lab-card">
+<strong>02 / CODE</strong>
+<h3>Programming Challenges</h3>
+<p>
+Using small problems to strengthen logical thinking and
+programming fundamentals.
+</p>
+</div>
+
+<div class="lab-card">
+<strong>03 / FUTURE</strong>
+<h3>New Technologies</h3>
+<p>
+Exploring tools and technologies that may become part of
+future projects.
+</p>
+</div>
+
+</div>
+
+</div>
+</section>
+
+
+<section class="cta">
+
+<div class="label">THE JOURNEY CONTINUES</div>
+
+<h2>
+The next project could<br>
+be the <span>best one yet.</span>
+</h2>
+
+<p>
+This portfolio will continue evolving alongside the things I learn and build.
+</p>
+
+<a href="contact.html" class="button">
+Let's Connect →
+</a>
+
+</section>
+
+</main>
+
+
+<footer>
+<span>© 2026 Bishal Shirpali</span>
+<span>Imagine • Build • Evolve</span>
+</footer>
+<script>
+function toggleMenu(){
+    document.querySelector(".menu").classList.toggle("show");
+}
+</script>
+</body>
+</html>
